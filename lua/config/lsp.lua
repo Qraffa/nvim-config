@@ -17,9 +17,9 @@ local on_attach = function(client, bufnr)
 		pattern = '*.go,*.rs',
 		callback = function()
 			vim.lsp.buf.format({async=false})
-			vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
 		end
 	})
+
 	-- vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
 
 	-- Enable completion triggered by <c-x><c-o>
@@ -43,6 +43,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<Leader>te', function() vim.diagnostic.open_float() end, bufopts)
 
 	navic.attach(client, bufnr)
 end
@@ -87,3 +88,11 @@ lspconfig['clangd'].setup({
 -- 	on_attach = on_attach,
 -- 	capabilities = capabilities,
 -- })
+--
+
+require('rust-tools').setup({
+	server = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
+})

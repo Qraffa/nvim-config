@@ -31,7 +31,6 @@ lua require('config.bufferline')
 lua require('config.nvim-cmp')
 lua require('config.lsp')
 lua require('config.dashboard')
-lua require('config.rust-tools')
 
 lua require('leap').add_default_mappings()
 
