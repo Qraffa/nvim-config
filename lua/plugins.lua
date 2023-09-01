@@ -87,6 +87,7 @@ return require('packer').startup(function (use)
 	use { 'tamago324/nlsp-settings.nvim' }
 	use { 'williamboman/nvim-lsp-installer' }
 	use { 'simrat39/rust-tools.nvim' }
+	use { 'ray-x/lsp_signature.nvim' }
 end)
 
 

@@ -9,6 +9,7 @@ navic.setup({
 })
 
 local lspconfig = require('lspconfig')
+local lsp_signature = require('lsp_signature')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -44,6 +45,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 	vim.keymap.set('n', '<Leader>te', function() vim.diagnostic.open_float() end, bufopts)
+	lsp_signature.on_attach({}, bufnr)
 
 	navic.attach(client, bufnr)
 end
