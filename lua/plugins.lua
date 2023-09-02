@@ -42,7 +42,7 @@ return require('packer').startup(function (use)
 	-- dashboard
 	use { 
 		"glepnir/dashboard-nvim",
-		event = 'VimEnter',
+		-- event = 'VimEnter',
 	}
 	-- 注释
 	use { "tpope/vim-commentary" }
