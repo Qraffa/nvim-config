@@ -88,6 +88,9 @@ return require('packer').startup(function (use)
 	use { 'williamboman/nvim-lsp-installer' }
 	use { 'simrat39/rust-tools.nvim' }
 	use { 'ray-x/lsp_signature.nvim' }
+	use { 'folke/tokyonight.nvim'}
+	use { 'catppuccin/nvim' }
+	use { 'CRAG666/code_runner.nvim' }
 end)
 
 

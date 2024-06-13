@@ -15,7 +15,7 @@ local lsp_signature = require('lsp_signature')
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 	vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-		pattern = '*.go,*.rs',
+		pattern = '*.go,*.rs,*cpp',
 		callback = function()
 			vim.lsp.buf.format({async=false})
 		end
