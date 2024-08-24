@@ -19,6 +19,7 @@ require('config.lsp')
 require('config.dashboard')
 require('leap').add_default_mappings()
 require('config.code-runner')
+require('config.telescope')
 
 vim.g.mapleader = ' '
 local keymap = vim.keymap.set

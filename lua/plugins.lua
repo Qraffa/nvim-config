@@ -49,7 +49,10 @@ return require('packer').startup(function (use)
 	-- 搜索
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+	  requires = { 
+			{'nvim-lua/plenary.nvim'},
+			{'nvim-telescope/telescope-live-grep-args.nvim'},
+		}
 	}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	-- 显示代码 context 的导航栏

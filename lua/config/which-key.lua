@@ -25,7 +25,8 @@ wk.register({
 			name = "+telescope",
 			f = { "<cmd>Telescope find_files<cr>", "find files" },
 			b = { "<cmd>Telescope buffer<cr>", "find buffer" },
-			r = { "<cmd>Telescope live_grep<cr>", "grep" }
+			r = { "<cmd>Telescope live_grep<cr>", "grep" },
+			g = { "<cmd>Telescope live_grep_args<cr>", "grep args" }
 		},
 	},
 })

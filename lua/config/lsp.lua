@@ -92,9 +92,14 @@ lspconfig['clangd'].setup({
 -- })
 --
 
-require('rust-tools').setup({
-	server = {
+require('rust-tools').setup({ server = {
 		on_attach = on_attach,
 		capabilities = capabilities,
 	}
 })
+
+-- require('protolint').setup({ server = {
+-- 		on_attach = on_attach,
+-- 		capabilities = capabilities,
+-- 	}
+-- })
