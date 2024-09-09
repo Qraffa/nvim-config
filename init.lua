@@ -36,5 +36,5 @@ local config_path = vim.fn.stdpath('config')
 vim.cmd(string.format('source %s/core/wilder.vim', config_path))
 
 -- vim.cmd.colorscheme("onedark")
--- vim.cmd.colorscheme("catppuccin-mocha")
-vim.cmd.colorscheme("tokyonight-storm")
+vim.cmd.colorscheme("catppuccin-mocha")
+-- vim.cmd.colorscheme("tokyonight-storm")
