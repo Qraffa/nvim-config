@@ -37,7 +37,8 @@ require('lualine').setup {
 	winbar = {
 	  lualine_a = {},
 	  lualine_b = {},
-	  lualine_c = { { navic.get_location, cond = navic.is_available }, },
+	  -- lualine_c = { { navic.get_location, cond = navic.is_available }, },
+		lualine_c = { {"navic", color_correction=nil, navic_opts=nil} },
 	  lualine_x = {},
 	  lualine_y = {},
 	  lualine_z = {}
