@@ -94,6 +94,10 @@ return require('packer').startup(function (use)
 	use { 'folke/tokyonight.nvim'}
 	use { 'catppuccin/nvim' }
 	use { 'CRAG666/code_runner.nvim' }
+	use { 
+		'folke/todo-comments.nvim',
+ 	  config = function() require("todo-comments").setup {} end
+	}
 end)
 
 
