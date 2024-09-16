@@ -17,7 +17,7 @@ require('config.bufferline')
 require('config.nvim-cmp')
 require('config.lsp')
 require('config.dashboard')
-require('leap').add_default_mappings()
+require('config.leap')
 require('config.code-runner')
 require('config.telescope')
 
