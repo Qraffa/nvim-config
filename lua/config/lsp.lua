@@ -8,21 +8,20 @@ navic.setup({
 	highlight = true
 })
 
-local lspconfig = require('lspconfig')
 local lsp_signature = require('lsp_signature')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 	vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-		pattern = '*.rs,*cpp',
+		buffer = bufnr,
 		callback = function()
 			vim.lsp.buf.format({async=false})
 		end
 	})
 
 	vim.api.nvim_create_autocmd({'BufWritePre'}, {
-		pattern = "*.go",
+		buffer = bufnr,
 	  callback = function()
 	    local params = vim.lsp.util.make_range_params()
 	    params.context = {only = {"source.organizeImports"}}
@@ -75,19 +74,14 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspconfig['lua_ls'].setup({
+-- Global LSP config applied to all servers
+vim.lsp.config('*', {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-lspconfig['vimls'].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-lspconfig['gopls'].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+-- Server-specific configs
+vim.lsp.config('gopls', {
 	settings = {
 		gopls = {
 			analyses = {
@@ -98,31 +92,6 @@ lspconfig['gopls'].setup({
 	},
 })
 
-lspconfig['pyright'].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-lspconfig['clangd'].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-
--- lspconfig['rust_analyzer'].setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
---
-
-require('rust-tools').setup({ server = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-	}
-})
-
--- require('protolint').setup({ server = {
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 	}
--- })
+-- Enable servers (mason-lspconfig will auto-enable installed ones,
+-- but we explicitly enable all to be safe)
+vim.lsp.enable({ 'lua_ls', 'vimls', 'gopls', 'pyright', 'clangd', 'rust_analyzer' })

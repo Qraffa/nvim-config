@@ -19,6 +19,8 @@ require('config.lsp')
 require('config.dashboard')
 require('config.leap')
 require('config.code-runner')
+require('config.trouble')
+require('config.harpoon')
 require('config.telescope')
 
 vim.g.mapleader = ' '

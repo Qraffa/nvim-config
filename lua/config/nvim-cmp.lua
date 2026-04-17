@@ -2,9 +2,12 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 
 cmp.setup({
+	-- TODO
 	snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+			-- vim.snippet.expand(args.body)
+			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
 	},
 	mapping = cmp.mapping.preset.insert {
@@ -22,7 +25,7 @@ cmp.setup({
         fallback()
       end
     end,
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<Esc>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
